@@ -1,6 +1,6 @@
 // 防抖：频繁onclick、inputchange、onscroll、onresize
 // 密集事件触发，只执行靠后的事件（最后一次才进行函数调用）
-function debounce (fn, delay = 200, immediate = false) {
+function debounce(fn, delay = 200, immediate = false) {
     let timer = null
     return function () {
         // 修正this指向
@@ -11,12 +11,12 @@ function debounce (fn, delay = 200, immediate = false) {
             if (!timer) {
                 fn.apply(ctx, args)
             }
-            timer = setTimeout(function() {
+            timer = setTimeout(function () {
                 timer = null
             }, delay);
         }
         else {
-            timer = setTimeout(function() {
+            timer = setTimeout(function () {
                 // 修正入参
                 fn.apply(ctx, args)
             }, delay)
@@ -30,12 +30,12 @@ function debounce (fn, delay = 200, immediate = false) {
 function throttle(fn, interval = 200, trailing) {
     let prev = 0
     let timer = null
-    return function() {
+    return function () {
         let ctx = this
         let args = arguments
         let now = +Date.now()
         if (now - prev > interval) {
-            if(timer) {
+            if (timer) {
                 clearTimeout(timer)
                 timer = null
             }
@@ -43,7 +43,7 @@ function throttle(fn, interval = 200, trailing) {
             prev = now
         }
         else if (!timer && trailing) {
-            timer = setTimeout(function() {
+            timer = setTimeout(function () {
                 fn.apply(ctx, args)
                 timer = null
             }, interval)
