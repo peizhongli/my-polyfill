@@ -1,0 +1,23 @@
+
+// 清除默认
+.clearDefaultActive() {
+    -webkit-tap-highlight-color: transparent;
+}
+
+// 块区域点击态
+.wrapperActive() {
+    .clearDefaultActive();
+
+    &:active {
+        background-color: rgba(0, 0, 0, .05);
+    }
+}
+
+// 按钮点击态
+.btnActive() {
+    .clearDefaultActive();
+
+    &:active {
+        opacity: .5;
+    }
+}
